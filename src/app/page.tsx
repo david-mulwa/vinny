@@ -80,7 +80,7 @@ to <span className='text-lg'><b>0725 120 785 (Marchel Ochieng)</b></span>.
         <p className='mt-3'>
         We are excited to share our love story with you and invite you to be a part of our special day.
         </p>
-        <p className='mt-3'>Above all, your prayers, love, and presence would mean the world to us.</p>
+        <p className='mt-3'>Above all, your prayers, love, and presence would be a blessing to us.</p>
         <p className='mt-3'>Thank you, and may God bless you abundantly for your kindness and support.</p>
         <p className='mt-3'>
         With love,
@@ -97,7 +97,7 @@ to <span className='text-lg'><b>0725 120 785 (Marchel Ochieng)</b></span>.
           <input
             type="text"
             name="name"
-            className="border border-gray-300 bg-white h-10 p-4 w-full rounded-lg text-sm text-black placeholder:text-black"
+            className="border border-gray-300 bg-white h-10 p-4 w-full rounded-lg text-sm text-black placeholder:text-gray-500"
             placeholder="Enter your name"
             value={name}
             required
@@ -110,7 +110,7 @@ to <span className='text-lg'><b>0725 120 785 (Marchel Ochieng)</b></span>.
           <input
             type="tel"
             name="phone"
-            className="border border-gray-300 bg-white h-10 p-4 w-full rounded-lg text-sm text-black placeholder:text-black"
+            className="border border-gray-300 bg-white h-10 p-4 w-full rounded-lg text-sm text-black placeholder:text-gray-500"
             placeholder="Enter your phone number"
             value={phone}
             required
@@ -124,7 +124,7 @@ to <span className='text-lg'><b>0725 120 785 (Marchel Ochieng)</b></span>.
             type="email"
             name="email"
             required
-            className="border border-gray-300 bg-white h-10 p-4 w-full rounded-lg text-sm text-black placeholder:text-black"
+            className="border border-gray-300 bg-white h-10 p-4 w-full rounded-lg text-sm text-black placeholder:text-gray-500"
             placeholder="Enter your email address"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -137,7 +137,7 @@ to <span className='text-lg'><b>0725 120 785 (Marchel Ochieng)</b></span>.
           required
             type="number"
             name="pledge"
-            className="border border-gray-300 bg-white h-10 p-4 w-full rounded-lg text-sm text-black placeholder:text-black"
+            className="border border-gray-300 bg-white h-10 p-4 w-full rounded-lg text-sm text-black placeholder:text-500"
             placeholder="Enter your Pledge Amount"
             value={pledge}
             onChange={(e) => setPledge(e.target.value)}
@@ -150,25 +150,29 @@ to <span className='text-lg'><b>0725 120 785 (Marchel Ochieng)</b></span>.
           required
             type="date"
             name="reminder"
-            className="border border-gray-300 bg-white h-10 px-4 w-full rounded-lg text-sm text-black"
+            className="border border-gray-300 bg-white h-10 px-4 w-full rounded-lg text-sm text-black placeholder:text-gray-500"
             value={reminder}
             onChange={(e) => setReminder(e.target.value)}
+            placeholder='Select day to be reminded?'
           />
         </div>
 
         <div>
           <label className="block text-sm font-medium mb-1">How would you love to be reminded?</label>
           <select
+            id='how'
             name="how"
             className="border border-gray-300 bg-white h-10 px-4 w-full rounded-lg text-sm text-black"
             value={how}
             onChange={(e) => setHow(e.target.value)}
             required
+            
           >
             <option value="">Select</option>
             <option value="email">Email</option>
             <option value="phone">Phone</option>
             <option value="text">Text</option>
+            <option value="both">WhatsApp</option>
           </select>
         </div>
 
