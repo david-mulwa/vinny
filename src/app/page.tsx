@@ -57,7 +57,7 @@ const Page = () => {
     <div className="flex flex-col items-center justify-center p-5">
       <div className="flex items-center justify-center">
         <Image 
-          src="./favicon.jpg"
+          src="/favicon.jpg"
           alt="jacky wed vinny"
           className="w-[300px] h-[300px] max-md:w-full max-md:h-full"
         />
