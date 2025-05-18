@@ -1,103 +1,180 @@
-import Image from "next/image";
+"use client"
 
-export default function Home() {
+import React, { useState, useRef } from 'react'
+import emailjs from 'emailjs-com'
+
+const Page = () => {
+  const [name, setName] = useState('')
+  const [phone, setPhone] = useState('')
+  const [email, setEmail] = useState('')
+  const [pledge, setPledge] = useState('')
+  const [reminder, setReminder] = useState('')
+  const [how, setHow] = useState('')
+
+  const formRef = useRef<HTMLFormElement | null>(null)
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+
+    if (!formRef.current) return;
+
+    emailjs.send(
+      'service_y7cxpme',
+      'template_im8vj0q',
+      {
+        name,
+        phone,
+        email,
+        pledge,
+        reminder,
+        how,
+      },
+      'jlkPZwbol4fDKVM1y'
+    )
+    
+      .then(
+        (result) => {
+          alert('Form submitted successfully!')
+          // Clear form
+          setName('')
+          setPhone('')
+          setEmail('')
+          setPledge('')
+          setReminder('')
+          setHow('')
+        },
+        (error) => {
+          alert('Failed to send form. Please try again.')
+          console.log(error)
+        }
+      )
+  }
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+    <div className="flex flex-col items-center justify-center p-5">
+      <div className="flex items-center justify-center">
+        <img 
+          src="./favicon.ico"
+          alt="jacky wed vinny"
+          className="w-[300px] h-[300px] max-md:w-full max-md:h-full"
         />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+      </div>
+      <div>
+        <h1 className='text-3xl font-bold mt-3'>RSVP</h1>
+        <h2 className="text-xl font-semibold mt-2">A Beautiful Story Is About to Begin...</h2>
+        <h2 className='text-xl font-semibold mt-2'>Jacky weds Vinny</h2>
+        <p className='mt-3'>
+        Dear Friends and Family,
+        </p>
+        <p className='mt-2'>You hold a special place in our hearts, and it is with great joy that we invite you
+        to share in the celebration of our love.</p>
+        <p className='mt-3'>We warmly welcome you to our wedding on <span className='text-lg'><b>August 9th, 2025</b></span>, at <span className='text-lg'><b>Samdove Gardens</b></span>, located along the Eastern Bypass.</p>
+        <p className='mt-3'>
+        As we prepare for this special day, we kindly seek your financial support to help
+us reach our budget of <span className='text-lg'><b>Ksh 500,000</b></span>. Contributions can be sent
+to <span className='text-lg'><b>0725 120 785 (Marchel Ochieng)</b></span>.
+        </p>
+        <p className='mt-3'>
+        We are excited to share our love story with you and invite you to be a part of our special day.
+        </p>
+        <p className='mt-3'>Above all, your prayers, love, and presence would mean the world to us.</p>
+        <p className='mt-3'>Thank you, and may God bless you abundantly for your kindness and support.</p>
+        <p className='mt-3'>
+        With love,
+        </p>
+        <p className='text-lg'>
+        <span><b>Jacky & Vinny</b></span>
+        </p>
+        <p className='text-lg mt-4'><b>Kindly fill out the pledge form below!</b></p>
+      </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      <form ref={formRef} onSubmit={handleSubmit} className="w-full max-w-md space-y-4 mt-5">
+        <div>
+          <label className="block text-sm font-medium mb-1">FULL NAME</label>
+          <input
+            type="text"
+            name="name"
+            className="border border-gray-300 bg-white h-10 p-4 w-full rounded-lg text-sm text-black placeholder:text-black"
+            placeholder="Enter your name"
+            value={name}
+            required
+            onChange={(e) => setName(e.target.value)}
+          />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+
+        <div>
+          <label className="block text-sm font-medium mb-1">Phone Number</label>
+          <input
+            type="tel"
+            name="phone"
+            className="border border-gray-300 bg-white h-10 p-4 w-full rounded-lg text-sm text-black placeholder:text-black"
+            placeholder="Enter your phone number"
+            value={phone}
+            required
+            onChange={(e) => setPhone(e.target.value)}
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium mb-1">Email Address</label>
+          <input
+            type="email"
+            name="email"
+            className="border border-gray-300 bg-white h-10 p-4 w-full rounded-lg text-sm text-black placeholder:text-black"
+            placeholder="Enter your email address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium mb-1">Pledge Amount</label>
+          <input
+            type="number"
+            name="pledge"
+            className="border border-gray-300 bg-white h-10 p-4 w-full rounded-lg text-sm text-black placeholder:text-black"
+            placeholder="Enter your Pledge Amount"
+            value={pledge}
+            onChange={(e) => setPledge(e.target.value)}
           />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium mb-1">When do you want to be reminded?</label>
+          <input
+            type="date"
+            name="reminder"
+            className="border border-gray-300 bg-white h-10 px-4 w-full rounded-lg text-sm text-black"
+            value={reminder}
+            onChange={(e) => setReminder(e.target.value)}
+          />
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium mb-1">How would you love to be reminded?</label>
+          <select
+            name="how"
+            className="border border-gray-300 bg-white h-10 px-4 w-full rounded-lg text-sm text-black"
+            value={how}
+            onChange={(e) => setHow(e.target.value)}
+            required
+          >
+            <option value="">Select</option>
+            <option value="email">Email</option>
+            <option value="phone">Phone</option>
+            <option value="text">Text</option>
+          </select>
+        </div>
+
+        <button
+          type="submit"
+          className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
+        >
+          Submit
+        </button>
+      </form>
     </div>
-  );
+  )
 }
+
+export default Page
