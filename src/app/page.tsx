@@ -120,6 +120,7 @@ to <span className='text-lg'><b>0725 120 785 (Marchel Ochieng)</b></span>.
           <input
             type="email"
             name="email"
+            required
             className="border border-gray-300 bg-white h-10 p-4 w-full rounded-lg text-sm text-black placeholder:text-black"
             placeholder="Enter your email address"
             value={email}
@@ -130,6 +131,7 @@ to <span className='text-lg'><b>0725 120 785 (Marchel Ochieng)</b></span>.
         <div>
           <label className="block text-sm font-medium mb-1">Pledge Amount</label>
           <input
+          required
             type="number"
             name="pledge"
             className="border border-gray-300 bg-white h-10 p-4 w-full rounded-lg text-sm text-black placeholder:text-black"
@@ -142,6 +144,7 @@ to <span className='text-lg'><b>0725 120 785 (Marchel Ochieng)</b></span>.
         <div>
           <label className="block text-sm font-medium mb-1">When do you want to be reminded?</label>
           <input
+          required
             type="date"
             name="reminder"
             className="border border-gray-300 bg-white h-10 px-4 w-full rounded-lg text-sm text-black"
@@ -168,7 +171,7 @@ to <span className='text-lg'><b>0725 120 785 (Marchel Ochieng)</b></span>.
 
         <button
           type="submit"
-          className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
+          className="bg-[#ffa500] text-white px-4 py-2 rounded-lg hover:bg-[#ffa500] transition"
         >
           Submit
         </button>
