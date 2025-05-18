@@ -3,7 +3,7 @@
 import React, { useState, useRef } from 'react'
 import emailjs from 'emailjs-com'
 import Image from 'next/image'
-import { Result } from 'postcss'
+
 
 const Page = () => {
   const [name, setName] = useState('')
