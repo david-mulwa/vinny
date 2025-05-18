@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -12,11 +11,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Jacky weds Vinny",
-  description: "The story of life together begins here",
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -24,9 +18,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <head>
+        <title>Jacky weds Vinny</title>
+        <meta name="description" content="The story of life together begins here" />
+
+        {/* Open Graph Meta Tags */}
+        <meta property="og:title" content="Jacky weds Vinny" />
+        <meta property="og:description" content="The story of life together begins here" />
+        <meta property="og:image" content="https://jackywedsvinny.vercel.app/favicon.jpg" />
+        <meta property="og:url" content="https://jackywedsvinny.vercel.app/" />
+        <meta property="og:type" content="website" />
+
+
+      </head>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
       </body>
     </html>
