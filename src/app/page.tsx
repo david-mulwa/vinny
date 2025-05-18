@@ -2,6 +2,8 @@
 
 import React, { useState, useRef } from 'react'
 import emailjs from 'emailjs-com'
+import Image from 'next/image'
+import { Result } from 'postcss'
 
 const Page = () => {
   const [name, setName] = useState('')
@@ -33,7 +35,7 @@ const Page = () => {
     )
     
       .then(
-        (result) => {
+        () => {
           alert('Form submitted successfully!')
           // Clear form
           setName('')
@@ -47,13 +49,14 @@ const Page = () => {
           alert('Failed to send form. Please try again.')
           console.log(error)
         }
+        
       )
   }
 
   return (
     <div className="flex flex-col items-center justify-center p-5">
       <div className="flex items-center justify-center">
-        <img 
+        <Image 
           src="./favicon.ico"
           alt="jacky wed vinny"
           className="w-[300px] h-[300px] max-md:w-full max-md:h-full"
