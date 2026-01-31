@@ -19,14 +19,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>Jacky weds Vinny</title>
+        <title>Daisy weds Rotich</title>
         <meta name="description" content="The story of life together begins here" />
 
         {/* Open Graph Meta Tags */}
-        <meta property="og:title" content="Jacky weds Vinny" />
+        <meta property="og:title" content="Daisy weds Rotich" />
         <meta property="og:description" content="The story of life together begins here" />
-        <meta property="og:image" content="https://jackywedsvinny.vercel.app/favicon.jpg" />
-        <meta property="og:url" content="https://jackywedsvinny.vercel.app/" />
+        <meta property="og:image" content="https://daisywedsrotich.vercel.app/favicon.jpg" />
+        <meta property="og:url" content="https://daisywedsrotich.vercel.app/" />
         <meta property="og:type" content="website" />
 
 
