@@ -182,7 +182,7 @@ to <span className='text-lg'><b className='text-fuchsia-500'>0119051981 </b> (Ne
 
         <button
           type="submit"
-          className="bg-[#ffa500] text-white px-4 py-2 rounded-lg hover:bg-[#ffa500] transition"
+          className="bg-[#ffa500] text-white px-4 py-2 rounded-lg hover:bg-[#ffa500] transition mb-24"
         >
           Submit
         </button>
