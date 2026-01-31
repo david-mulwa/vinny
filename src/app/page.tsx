@@ -59,23 +59,26 @@ const Page = () => {
         <Image 
           src="/favicon.jpg"
           alt="jacky wed vinny"
+          width={300}
+          height={300}
+
           className="w-[300px] h-[300px] max-md:w-full max-md:h-full"
         />
       </div>
       <div>
         <h1 className='text-3xl font-bold mt-3'>RSVP</h1>
         <h2 className="text-xl font-semibold mt-2">A Beautiful Story Is About to Begin...</h2>
-        <h2 className='text-xl font-semibold mt-2'>Jacky weds Vinny</h2>
+        <h2 className='text-xl font-semibold mt-2'>Daisy weds Rotich</h2>
         <p className='mt-3'>
         Dear Friends and Family,
         </p>
         <p className='mt-2'>You hold a special place in our hearts, and it is with great joy that we invite you
         to share in the celebration of our love.</p>
-        <p className='mt-3'>We warmly welcome you to our wedding on <span className='text-lg'><b>August 9th, 2025</b></span>, at <span className='text-lg'><b>Samdove Gardens</b></span>, located along the Eastern Bypass.</p>
+        <p className='mt-3'>We warmly welcome you to our wedding on <span className='text-lg'><b>April 3rd, 2026</b></span>, at <span className='text-lg'><b>Samdove Gardens</b></span>, located along the Eastern Bypass.</p>
         <p className='mt-3'>
         As we prepare for this special day, we kindly seek your financial support to help
-us reach our budget of <span className='text-lg'><b>Ksh 500,000</b></span>. Contributions can be sent
-to <span className='text-lg'><b>0725 120 785 (Marchel Ochieng)</b></span>.
+us reach our budget goals. Contributions can be sent
+to <span className='text-lg'><b className='text-fuchsia-500'>0119051981 </b> (Nelson Rotich) or Paybill <b className='text-fuchsia-500'>303030 </b> Account Number <b className='text-fuchsia-500'>2054970709</b> Name: Nelson Kiprono Rotich.</span>.
         </p>
         <p className='mt-3'>
         We are excited to share our love story with you and invite you to be a part of our special day.
@@ -86,7 +89,7 @@ to <span className='text-lg'><b>0725 120 785 (Marchel Ochieng)</b></span>.
         With love,
         </p>
         <p className='text-lg'>
-        <span><b>Jacky & Vinny</b></span>
+        <span><b>Daisy and Rotich</b></span>
         </p>
         <p className='text-lg mt-4'><b>Kindly fill out the pledge form below!</b></p>
       </div>
@@ -160,6 +163,7 @@ to <span className='text-lg'><b>0725 120 785 (Marchel Ochieng)</b></span>.
         <div>
           <label className="block text-sm font-medium mb-1">How would you love to be reminded?</label>
           <select
+          aria-label='how'
             id='how'
             name="how"
             className="border border-gray-300 bg-white h-10 px-4 w-full rounded-lg text-sm text-black"
